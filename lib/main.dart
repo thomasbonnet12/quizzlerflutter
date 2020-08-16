@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'question.dart';
 import 'quiz_brain.dart';
 
+QuizBrain quizbrain = QuizBrain();
+
 void main() => runApp(Quizzler());
 
 class Quizzler extends StatelessWidget {
@@ -43,7 +45,7 @@ class _QuizPageState extends State<QuizPage> {
             padding: EdgeInsets.all(10.0),
             child: Center(
               child: Text(
-                questionBank[questionNumber].questionText,
+                quizbrain.questionBank[questionNumber].questionText,
                 textAlign: TextAlign.center,
                 style: TextStyle(
                   fontSize: 25.0,
@@ -68,7 +70,7 @@ class _QuizPageState extends State<QuizPage> {
               ),
               onPressed: () {
                 bool correctAnswer =
-                    questionBank[questionNumber].questionAnswer;
+                    quizbrain.questionBank[questionNumber].questionAnswer;
 
                 if (correctAnswer == true) {
                   print("correct answer");
@@ -100,7 +102,7 @@ class _QuizPageState extends State<QuizPage> {
               onPressed: () {
                 //The user picked false.
                 bool correctAnswer =
-                    questionBank[questionNumber].questionAnswer;
+                    quizbrain.questionBank[questionNumber].questionAnswer;
 
                 if (correctAnswer == false) {
                   print("correct answer");
