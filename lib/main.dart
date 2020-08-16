@@ -75,9 +75,8 @@ class _QuizPageState extends State<QuizPage> {
                   print("wrong answer buddy");
                 }
 
-                print(questionNumber);
                 setState(() {
-                  questionNumber++;
+                  quizBrain.nextQuestion();
                 });
                 //The user picked true
               },
@@ -108,7 +107,7 @@ class _QuizPageState extends State<QuizPage> {
                 print(questionNumber);
 
                 setState(() {
-                  questionNumber++;
+                  quizBrain.nextQuestion();
                 });
               },
             ),
