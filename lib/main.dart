@@ -47,11 +47,24 @@ class _QuizPageState extends State<QuizPage> {
 
     //TODO: Step 4 - Use IF/ELSE to check if we've reached the end of the quiz. If true, execute Part A, B, C, D.
     if (quizBrain.isFinished() == true) {
+      var correctCount =
+          scoreKeeper.where((element) => element.color == Colors.green).length;
       Alert(
-              context: context,
-              title: "Finished!",
-              desc: "You\'ve reached the end of the quiz.")
-          .show();
+        context: context,
+        type: AlertType.success,
+        title: 'Finished!',
+        desc: '$correctCount/${scoreKeeper.length}',
+        buttons: [
+          DialogButton(
+            child: Text('Done',
+                style: TextStyle(color: Colors.white, fontSize: 20)),
+            onPressed: () {
+              Navigator.pop(context);
+            },
+            width: 120,
+          )
+        ],
+      ).show();
       quizBrain.reset();
       scoreKeeper.clear();
     }
