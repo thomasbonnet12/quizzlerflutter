@@ -35,8 +35,11 @@ class _QuizPageState extends State<QuizPage> {
   void checkAnswer(bool userPickedAnswer) {
     bool correctAnswer = quizBrain.getAnswer();
     //TODO: Step 4 - Use IF/ELSE to check if we've reached the end of the quiz. If true, execute Part A, B, C, D.
-    if (quizBrain.isFinished()) {
-      Alert(context: context, title: "RFLUTTER", desc: "Flutter is awesome.")
+    if (quizBrain.isFinished() == true) {
+      Alert(
+              context: context,
+              title: "Finished!",
+              desc: "You\'ve reached the end of the quiz.")
           .show();
       quizBrain.reset();
       scoreKeeper = [];
